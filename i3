@@ -214,7 +214,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command    i3status
+	#status_command    i3status
 	position          top
 	colors {
         	background #222222
@@ -225,11 +225,16 @@ bar {
         	inactive_workspace #888888 #333333
         	urgent_workspace   #ffffff #900000
     	}
+#requires gnome-system-monitor for default mouse click action 
+	status_command <path>/bumblebee-status -m disk cpu memory pulseaudio time layout-xkb \
+		pasink pasource -p time.format="%H:%M" -t iceberg-contrast
 }
- 
-exec_always feh --bg-scale /home/julio/Downloads/wallpaperflare.com_wallpaper.jpg
+#autostart processes
+exec_always --no-startup-id feh --bg-scale /home/julio/Downloads/wallpaper_here
+exec_always --no-startup-id autotiling
+exec_always --no-startup-id picom
 # The same as default_border none
-default_border pixel 1
+#default_border pixel 1
 #my programes running
 bindsym $mod+b exec firefox
 bindsym $mod+f exec thunar
