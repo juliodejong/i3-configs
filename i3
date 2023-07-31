@@ -16,6 +16,12 @@ gaps outer 15
  
 bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+Shift+z	gaps outer current minus 5
+
+# Only enable gaps on a workspace when there is at least one container
+smart_gaps on
+
+# Hide edge borders only if there is one window with no gaps
+hide_edge_borders smart_no_gaps
  
  
  
